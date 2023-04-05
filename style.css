@@ -1,0 +1,30 @@
+
+
+main {
+    width: 100%;
+}
+
+section {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+h1 {
+    text-align: center;
+}
+
+.main-container{
+    display: flex;
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+    height: 600px;
+}
+.left-box{
+    width: 20%;
+}
+.right-box{
+    width: 80%;
+    box-shadow: 2px 2px 7px rgb(58, 57, 57);
+}
