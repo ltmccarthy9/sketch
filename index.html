@@ -1,28 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>HTML 5 Boilerplate</title>
-    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>sketch board</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Mukta:wght@200;300;500;600;800&display=swap"
+     rel="stylesheet"
+     />
+    <link rel="shortcut icon" href="favicon.ico" />
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
+    <header>
+      <h1>Sketch Board</h1>
+    </header>
     <main>
-        <section>
-           <h1>Hello</h1>
-           <div class="main-container">
-            <div class="left-box">
-                <input type="color" value="#333333"/>
-            </div>
-            <div class="right-box">
-                right box
-            </div>
-           </div> 
-        </section>
+
+      <div class="options">
+        <div>
+            <label for="gridSizeSlider" id="gridSize">20 x 20</label>
+            <input id="gridSizeSlider" type="range" value="20" min="1" max="128" />
+            <label for="colorPicker">Pick a color</label>
+            <input id="colorPicker" name="colorPicker" type="color" value="#333333" />
+        </div>
+        <button id="solidMode" type="button">Solid mode</button>
+        <button id="eraserBtn" type="button">Eraser</button>
+        <button id="clearBtn" type="button">Clear</button>
+      </div>
+
+      <div id="grid" class="grid"></div>
+
     </main>
-
-
-	<script src="index.js"></script>
+    <script src="script.js"></script>
   </body>
 </html>
