@@ -18,6 +18,7 @@ clearColorsBtn.onclick = () => deleteColors()
 let colors = [];
 
 const savedColors = document.getElementById('savedColors');
+savedColors.onchange = () => setSavedColor()
 
 const solidModeBtn = document.getElementById('solidMode')
 solidModeBtn.onclick = () => setCurrentMode('color')
@@ -63,7 +64,12 @@ function appendColor(color){
     let colorOption = document.createElement('option')
     colorOption.setAttribute('value', color)
     colorOption.textContent = color
+    colorOption.style.backgroundColor = `${color}`
     savedColors.append(colorOption)
+}
+
+function setSavedColor(){
+    currentColor = savedColors.value
 }
 
 function deleteColors() {
@@ -79,6 +85,7 @@ function initialColorSelect() {
         let colorElement = document.createElement('option')
         colorElement.setAttribute("value", c)
         colorElement.textContent = c
+        colorElement.style.backgroundColor = `${c}`
         savedColors.append(colorElement)
     })
 }
@@ -139,6 +146,9 @@ function changeMode(newMode) {
   }
 }
 
+if(savedColors.value !== 'choose a color'){
+    console.log(savedColors.value)
+}
 
 window.onload = () => {
   createGrid(initialDimensions)
