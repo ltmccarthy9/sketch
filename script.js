@@ -80,7 +80,6 @@ function deleteColors() {
 
 function initialColorSelect() {
     let ourColors = JSON.parse(localStorage.getItem('colors'))
-    console.log('initial load colors: ', ourColors)
     ourColors.forEach((c, index) => {
         let colorElement = document.createElement('option')
         colorElement.setAttribute("value", c)
@@ -92,6 +91,9 @@ function initialColorSelect() {
 
 function removeColorOptions() {
     savedColors.textContent = ''
+    let chooseColor = document.createElement('option')
+    chooseColor.textContent = 'choose a color'
+    savedColors.append(chooseColor)
 }
 
 function createGrid(size) {
