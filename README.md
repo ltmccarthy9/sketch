@@ -4,6 +4,9 @@
 This is a sketch board application for drawing pixel art style sketches.
 Users can choose colors to draw with and save their own custom colors.
 
+## Deployed Site
+https://ltmccarthy9.github.io/sketch
+
 ## Technologies 
 * JavaScript
 * HTML5
