@@ -1,15 +1,23 @@
-const DEFAULT_MODE = 'color'
-const DEFAULT_COLOR = '#1f2937'
-const DEFAULT_SIZE = 20
+const initialMode = 'color'
+const initialColor = '#1f2937'
+const initialDimensions = 20
 
-let currentColor = DEFAULT_COLOR
-let currentMode = DEFAULT_MODE
-let currentSize = DEFAULT_SIZE
+let currentColor = initialColor
+let currentMode = initialMode
+let currentSize = initialDimensions
 
 const grid = document.getElementById('grid')
 
 const colorPicker = document.getElementById('colorPicker')
 colorPicker.oninput = (e) => setCurrentColor(e.target.value)
+
+const saveBtn = document.getElementById('saveButton')
+saveBtn.onclick = () => saveColor(currentColor)
+const clearColorsBtn = document.getElementById('clearColors')
+clearColorsBtn.onclick = () => deleteColors()
+let colors = [];
+
+const savedColors = document.getElementById('savedColors');
 
 const solidModeBtn = document.getElementById('solidMode')
 solidModeBtn.onclick = () => setCurrentMode('color')
@@ -40,6 +48,43 @@ function setCurrentColor(newColor) {
 function setCurrentMode(newMode) {
   changeMode(newMode)
   currentMode = newMode
+}
+
+function saveColor(color) {
+    if(colors.includes(color)){
+        return;
+    }
+    colors.push(color)
+    localStorage.setItem('colors', JSON.stringify(colors))
+    appendColor(color)
+}
+
+function appendColor(color){
+    let colorOption = document.createElement('option')
+    colorOption.setAttribute('value', color)
+    colorOption.textContent = color
+    savedColors.append(colorOption)
+}
+
+function deleteColors() {
+    colors = []
+    localStorage.removeItem('colors')
+    removeColorOptions()
+}
+
+function initialColorSelect() {
+    let ourColors = JSON.parse(localStorage.getItem('colors'))
+    console.log('initial load colors: ', ourColors)
+    ourColors.forEach((c, index) => {
+        let colorElement = document.createElement('option')
+        colorElement.setAttribute("value", c)
+        colorElement.textContent = c
+        savedColors.append(colorElement)
+    })
+}
+
+function removeColorOptions() {
+    savedColors.textContent = ''
 }
 
 function createGrid(size) {
@@ -94,7 +139,9 @@ function changeMode(newMode) {
   }
 }
 
+
 window.onload = () => {
-  createGrid(DEFAULT_SIZE)
-  changeMode(DEFAULT_MODE)
+  createGrid(initialDimensions)
+  changeMode(initialMode)
+  initialColorSelect()
 }

@@ -22,8 +22,18 @@
         <div>
             <label for="gridSizeSlider" id="gridSize">20 x 20</label>
             <input id="gridSizeSlider" type="range" value="20" min="1" max="128" />
-            <label for="colorPicker">Pick a color</label>
-            <input id="colorPicker" name="colorPicker" type="color" value="#333333" />
+            <div>
+                <label for="colorPicker">Pick a color</label>
+                <div class="colorContainer">
+                    <input id="colorPicker" name="colorPicker" type="color" value="#333333" />
+                    <button type="button" id="saveButton">Save</button>
+                </div>
+            </div>
+            <label for="savedColors">saved colors</label>
+            <select name="savedColors" id="savedColors">
+                
+            </select>
+            <button type="button" id="clearColors">clear saved colors</button>
         </div>
         <button id="solidMode" type="button">Solid mode</button>
         <button id="eraserBtn" type="button">Eraser</button>
