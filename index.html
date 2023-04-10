@@ -19,7 +19,7 @@
     <main>
 
       <div class="options">
-        <div>
+        <div class="colorOptions">
             <label for="gridSizeSlider" id="gridSize">20 x 20</label>
             <input id="gridSizeSlider" type="range" value="20" min="1" max="128" />
             <div>
@@ -29,10 +29,13 @@
                     <button type="button" id="saveButton">Save</button>
                 </div>
             </div>
-            <label for="savedColors">saved colors</label>
-            <select name="savedColors" id="savedColors">
-                <option value="choose a color">choose a color</option>
-            </select>
+            <div>
+              <label for="savedColors">saved colors</label>
+              <select name="savedColors" id="savedColors">
+                  <option value="choose a color">choose a color</option>
+              </select>
+            </div>
+           
             <button type="button" id="clearColors">clear saved colors</button>
         </div>
         <button id="solidMode" type="button">Color mode</button>

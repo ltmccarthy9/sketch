@@ -31,7 +31,6 @@
     font-family: inherit;
     font-size: inherit;
     cursor: pointer;
-    outline: none;
   }
   
   /* HEADER */
@@ -62,11 +61,26 @@
   }
 
   button {
-    padding: 10px 20px;
-    background-color: var( --gray);
-    border-radius: 8px;
+  background-color: rgb(125, 120, 120);
+  padding: 10px 20px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #fff;
+  border-radius: 5px;
+  transition: all ease 0.1s;
+  box-shadow: 0px 5px 0px 0px #423a3a;
+  }
+
+  button:hover{
+    background-color: var(--gray-2);
+    transition: all .3s ease-out;
   }
   
+  button:active{
+  transform: translateY(5px);
+  box-shadow: 0px 0px 0px 0px #a29bfe;
+  }
+
   button.active {
     background-color: var(--dark);
     color: var(--primary-light);
@@ -75,11 +89,6 @@
   button.active:hover {
     background-color: var(--dark);
     color: var(--primary-light);
-  }
-
-  button:hover{
-    background-color: var(--gray-2);
-    transition: all .3s ease-out;
   }
 
   input[type='color']{
@@ -93,6 +102,12 @@
     width: 210px;
   }
 
+  .colorOptions{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
   .colorContainer{
     display: flex;
     gap: 10px;
@@ -101,6 +116,10 @@
   #saveButton{
     width: 50%;
 
+  }
+
+  select{
+    padding: 5px;
   }
   
   #gridSize {
